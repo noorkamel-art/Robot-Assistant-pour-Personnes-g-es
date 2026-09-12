@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Assistant - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div>
+            <h1>Robot Assistant</h1>
+            <p>Dashboard famille / médecin</p>
+        </div>
+
+        <div class="header-right">
+            <div class="date-time">
+                <span id="currentDate">--/--/----</span>
+                <strong id="currentTime">--:--:--</strong>
+            </div>
+
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                Robot connecté
+            </div>
+        </div>
+    </header>
+
+
+    <main class="dashboard">
+
+        <!-- PATIENT -->
+
+        <section class="card patient-card">
+            <h2>Patient</h2>
+
+            <div class="patient-info">
+                <div class="avatar">P</div>
+
+                <div>
+                    <h3>Patient</h3>
+                    <p>
+                        État général :
+                        <strong>Normal</strong>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ACTIVITÉ -->
+
+        <section class="card">
+            <h2>Activité</h2>
+
+            <div class="activity-grid">
+
+                <div class="activity-item">
+                    <span>Dernière interaction</span>
+                    <strong id="lastInteraction">Aucune</strong>
+                </div>
+
+                <div class="activity-item">
+                    <span>Conversations aujourd'hui</span>
+                    <strong id="conversationCount">0</strong>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ALERTES -->
+
+        <section class="card alert-card">
+
+            <div class="card-header">
+                <h2>Alertes</h2>
+                <span class="alert-count" id="alertCount">0</span>
+            </div>
+
+            <!-- REAL ALERTS -->
+
+            <div id="alertsContainer">
+
+                <div class="no-alert">
+                    <span class="check-icon">✓</span>
+
+                    <div>
+                        <strong>Aucune alerte</strong>
+                        <p>Tout fonctionne normalement.</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- ADD REMINDER -->
+
+            <div class="reminder-form">
+
+                <h3>Ajouter un rappel</h3>
+
+                <input
+                    type="text"
+                    id="reminderTitle"
+                    placeholder="Ex : Prendre médicament"
+                >
+
+                <div class="reminder-fields">
+
+                    <input
+                        type="date"
+                        id="reminderDate"
+                    >
+
+                    <input
+                        type="time"
+                        id="reminderTime"
+                    >
+
+                </div>
+
+                <select id="reminderType">
+
+                    <option value="general">
+                        Rappel général
+                    </option>
+
+                    <option value="medication">
+                        Médicament
+                    </option>
+
+                    <option value="appointment">
+                        Rendez-vous
+                    </option>
+
+                    <option value="routine">
+                        Routine
+                    </option>
+
+                </select>
+
+                <button
+                    class="view-button"
+                    type="button"
+                    onclick="addReminder()"
+                >
+                    + Ajouter le rappel
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- HISTORIQUE -->
+
+        <section class="card">
+
+            <div class="card-header">
+                <h2>Historique</h2>
+
+                <button
+                    class="view-button"
+                    id="historyButton"
+                    type="button"
+                >
+                    Voir tout
+                </button>
+            </div>
+
+            <div
+                class="history-list"
+                id="historyPreview"
+            >
+
+                <div class="empty-history">
+                    Aucune interaction enregistrée.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- STATISTIQUES -->
+
+        <section class="card statistics-card">
+
+            <h2>Statistiques</h2>
+
+            <div class="statistics">
+
+                <div class="stat">
+                    <strong id="statisticsConversations">0</strong>
+                    <span>Conversations</span>
+                </div>
+
+                <div class="stat">
+                    <strong id="statisticsAlerts">0</strong>
+                    <span>Alertes</span>
+                </div>
+
+                <div class="stat">
+                    <strong>100%</strong>
+                    <span>Disponibilité</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- JOURNAL DES CONVERSATIONS -->
+
+        <section class="card">
+
+            <h2>Journal des conversations</h2>
+
+            <div id="conversationLog">
+
+                <div class="empty-history">
+                    Aucune conversation enregistrée.
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>Robot Assistant — Famille / Médecin</p>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
