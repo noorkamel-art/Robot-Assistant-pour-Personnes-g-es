@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Robot Assistant</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>🤖 Robot Assistant</h1>
+    </header>
+
+    <main>
+
+        <section class="patient">
+            <h2>👤 Patient</h2>
+            <p>Nom :<span id="patient-name"></span></p>
+        </section>
+
+        <section class="status">
+            <h2 id="status-title"> 🟢 Robot Status</h2>
+            <p id="robot-status">Normal</p>
+        </section>
+
+        <section class="activity">
+            <h2>📊 Activité</h2>
+            <p>Dernière interaction : <span id="last-interaction"></span></p>
+            <p>Conversations aujourd'hui : <span id="conversations-count"></span></p>
+        </section>
+
+        <section class="alerts">
+            <h2>🚨 Alertes</h2>
+            <p id="alert-message"> </p>
+        </section>
+
+        <section class="history">
+            <h2>📜 Historique</h2>
+            <p id="history-conversation"></p>
+            <p id="history-alerts"></p>
+            <p id="history-activity"></p>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
