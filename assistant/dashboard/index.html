@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Robot Assistant</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -20,36 +17,182 @@
 
         <section class="patient">
             <h2>👤 Patient</h2>
-            <p>Nom :<span id="patient-name"></span></p>
+            <p>
+                Nom :
+                <span id="patient-name"></span>
+            </p>
         </section>
 
         <section class="status">
-            <h2 id="status-title"> 🟢 Robot Status</h2>
-            <p id="robot-status">Normal</p>
+            <h2 id="status-title">
+                🟢 Robot Status
+            </h2>
+
+            <p id="robot-status">
+                Normal
+            </p>
+
+            <button id="start-assistant">
+                ▶️ Démarrer l'assistant
+            </button>
+
+            <button id="stop-assistant">
+                ⏹️ Arrêter l'assistant
+            </button>
         </section>
 
         <section class="activity">
             <h2>📊 Activité</h2>
-            <p>Dernière interaction : <span id="last-interaction"></span></p>
-            <p>Conversations aujourd'hui : <span id="conversations-count"></span></p>
+
+            <p>
+                Dernière interaction :
+                <span id="last-interaction"></span>
+            </p>
+
+            <p>
+                Conversations aujourd'hui :
+                <span id="conversations-count"></span>
+            </p>
         </section>
 
         <section class="alerts">
             <h2>🚨 Alertes</h2>
-            <p id="alert-message"> </p>
+
+            <p id="alert-message"></p>
+
+            <button id="delete-alerts">
+                🗑️ Supprimer toutes les alertes
+            </button>
+        </section>
+
+        <section class="reminders">
+            <h2>🔔 Rappels</h2>
+
+            <button id="add-reminder">
+                ➕ Ajouter un rappel
+            </button>
+
+            <button id="delete-reminders">
+                🗑️ Supprimer tous les rappels
+            </button>
+
+            <div id="reminder-form" style="display: none;">
+                <br>
+
+                <input
+                    type="text"
+                    id="event-name"
+                    placeholder="Nom de l'événement"
+                >
+
+                <br><br>
+
+                <input type="date" id="event-date">
+
+                <br><br>
+
+                <input type="time" id="event-time">
+
+                <br><br>
+
+                <button id="create-reminder">
+                    ✅ Créer le rappel
+                </button>
+            </div>
+
+            <div id="reminder-list"></div>
         </section>
 
         <section class="history">
             <h2>📜 Historique</h2>
+
             <p id="history-conversation"></p>
             <p id="history-alerts"></p>
             <p id="history-activity"></p>
+
+            <button
+                id="delete-history"
+                onclick="deleteHistory()"
+            >
+                🗑️ Supprimer l'historique
+            </button>
+        </section>
+
+        <section class="datetime-card">
+            <h2>🕐 Date & Heure</h2>
+
+            <div
+                class="clock-display"
+                id="current-time"
+            >
+                00:00:00
+            </div>
+
+            <div
+                class="date-display"
+                id="current-date"
+            >
+                00/00/0000
+            </div>
         </section>
 
     </main>
 
     <script src="script.js"></script>
 
-</body>
+    <script>
+        async function deleteHistory() {
 
+            const confirmation = confirm(
+                "Voulez-vous vraiment supprimer tout l'historique des conversations ?"
+            );
+
+            if (!confirmation) {
+                return;
+            }
+
+            try {
+
+                const response = await fetch(
+                    "http://127.0.0.1:5000/conversations/1",
+                    {
+                        method: "DELETE"
+                    }
+                );
+
+                if (!response.ok) {
+                    throw new Error(
+                        "Erreur lors de la suppression."
+                    );
+                }
+
+                alert(
+                    "Historique supprimé avec succès."
+                );
+
+                document.getElementById(
+                    "history-conversation"
+                ).textContent =
+                    "Aucune conversation";
+
+                document.getElementById(
+                    "conversations-count"
+                ).textContent =
+                    "0";
+
+            } catch (error) {
+
+                console.error(
+                    "Erreur suppression :",
+                    error
+                );
+
+                alert(
+                    "Erreur lors de la suppression de l'historique."
+                );
+            }
+        }
+    </script>
+
+</body>
 </html>
