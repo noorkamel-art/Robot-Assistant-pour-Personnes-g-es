@@ -10,6 +10,8 @@ Le système est basé sur :
 - Microphone INMP441
 - Amplificateur MAX98357A
 - Haut-parleur 4Ω / 3W
+- Écran TFT ST7735S 1.8" 128x160
+- Capteur de fréquence cardiaque MAX30102
 - PC local pour le traitement
 - Ollama + Qwen2.5:3b
 - Speech-to-Text (STT)
@@ -34,7 +36,14 @@ TTS
       ↓
 Réponse vocale
 
+Capteurs et interface robot
+      ↓
+ESP32
+      ├── TFT ST7735S
+      └── MAX30102
+
 Les conversations et l'activité quotidienne sont enregistrées dans Supabase.
+
 Base de données
 Tables principales :
 - patients
@@ -63,6 +72,19 @@ MAX98357A
 - Haut-parleur 4Ω / 3W
 - Sample rate : 16 kHz
 - Format : PCM 16-bit
+TFT ST7735S
+- Écran TFT LCD 1.8"
+- Résolution : 128x160
+- Interface SPI
+- Affichage des yeux du robot
+- Affichage de la fréquence cardiaque
+- Communication avec l'ESP32
+MAX30102
+- Capteur de fréquence cardiaque
+- Communication I2C
+- Mesure du BPM
+- Intégré avec l'affichage TFT
+- Adresse I2C : 0x57
 État actuel
 Software
 - Ollama installé et testé
@@ -79,6 +101,11 @@ Hardware
 - INMP441 testé individuellement
 - MAX98357A testé individuellement
 - Haut-parleur testé
+- TFT ST7735S testé
+- MAX30102 testé
+- Intégration TFT + MAX30102 fonctionnelle
+- Affichage des yeux du robot fonctionnel
+- Affichage du BPM fonctionnel
 - Intégration microphone + haut-parleur encore expérimentale
 
 Robot-Assistant-pour-Personnes-g-es/
@@ -92,17 +119,19 @@ Robot-Assistant-pour-Personnes-g-es/
 │   ├── hardware_full_test.py
 │   ├── reminder_scheduler.py
 │   │
-│   └── dashboard/
-│       ├── index.html
-│       ├── script.js
-│       └── style.css
+│   ├── dashboard/
+│   │   ├── index.html
+│   │   ├── script.js
+│   │   └── style.css
+│   │
+│   └── hardware/
+│       └── esp32/
+│           ├── esp32_microphone/
+│           ├── esp32_speaker/
+│           ├── esp32_full_audio/
+│           └── esp32_tft_max30102/
 │
 ├── hardware/
-│   ├── esp32/
-│   │   ├── esp32_microphone/
-│   │   ├── esp32_speaker/
-│   │   └── esp32_full_audio/
-│   │
 │   ├── inmp441/
 │   │   └── README.md
 │   │
@@ -123,9 +152,18 @@ Technologies
 - PostgreSQL
 - ESP32
 - I2S
+- SPI
+- I2C
+- TFT ST7735S
+- MAX30102
 - HTML
 - CSS
 - JavaScript
-
 Prochaines étapes
-Le projet continuera avec l'intégration progressive de nouveaux composants matériels et l'amélioration de l'interaction entre le robot, le backend et le dashboard.
+Le projet continuera avec l'intégration progressive des différents composants matériels afin de construire un prototype complet du robot assistant.
+Les prochaines étapes concernent notamment :
+- l'intégration physique des composants dans le prototype
+- l'amélioration de l'interface graphique du robot
+- l'intégration progressive des fonctions vocales et des capteurs
+- les tests fonctionnels finaux
+- la préparation du prototype pour la démonstration
