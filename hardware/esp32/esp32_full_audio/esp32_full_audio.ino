@@ -415,8 +415,6 @@ void loop() {
   }
 
 
-  // إذا قاعدين نسمعوا الرد
-  // ما نبداوش نبعثوا microphone
 
   if (playingResponse) {
 
@@ -434,7 +432,6 @@ void loop() {
   }
 
 
-  // قراءة microphone
 
   size_t bytes_read = 0;
 
@@ -466,8 +463,6 @@ void loop() {
       );
   }
 
-
-  // إرسال audio إلى PC
 
   if (
     samples_read > 0 &&
