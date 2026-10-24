@@ -1,0 +1,33 @@
+{
+    "interactions": [
+        {
+            "date": "12/09/2026",
+            "time": "23:23:46",
+            "language": "fr",
+            "question": "Pourquoi le ciel est bleu ?",
+            "answer": "Le ciel est bleu principalement à cause de la dispersion lumineuse causée par l'atmosphère terrestre. Les atomes d'azote et d'oxygène absorbent différemment les couleurs de la lumière du soleil selon leur longueur d'onde. La lumière verte est absorbée le moins et atteint nos yeux presque sans être absorbée, rendant notre ciel apparaissant bleu. Cependant, ce n'est pas toujours bleu car la couleur du ciel peut varier en fonction de la situation atmosphérique, comme l'heure du jour et les conditions de pollution."
+        },
+        {
+            "date": "12/09/2026",
+            "time": "13:04:13",
+            "language": "fr",
+            "question": "C'est quoi un CPU?",
+            "answer": "Un CPU, ou Central Processing Unit, est la carte principale d'un ordinateur qui effectue les opérations de base de traitement des données. Il gère les tâches en les convertissant en commandes physiques pour les ordinateurs, comme les processeurs."
+        },
+        {
+            "date": "12/09/2026",
+            "time": "13:00:20",
+            "language": "fr",
+            "question": "C'est quoi un CPE?",
+            "answer": "Un CPE est un Contrat Paritaire d'Engagement dans le secteur public."
+        },
+        {
+            "date": "12/09/2026",
+            "time": "12:58:20",
+            "language": "fr",
+            "question": "Pourquoi le ciel est bleu ?",
+            "answer": "Le ciel est bleu en raison d'un phénomène physique appelé effet d'absorption. La Voie lactée, les étoiles et d'autres émissions lumineuses sont généralement blanches. La stratosphère absorbant les rayons bleus avant que l'air les atteigne. C'est pour cette raison que nous voyons le ciel bleu."
+        }
+    ],
+    "alerts": []
+}
